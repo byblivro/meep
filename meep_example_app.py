@@ -181,20 +181,21 @@ class MeepExampleApp(object):
                         <input type='submit' value="Reply to Message">
                         </form>
                      """ % (m.id))
-            s.append(
-                     """
-                        <form action='increase_msg_rank' method='GET'>
-                        <input type='hidden' value='%d' name='id_num'>
-                        <input type='submit' value="Upvote Message">
-                        </form>
-                     """ % (m.id))
-            s.append(
-                     """
-                        <form action='decrease_msg_rank' method='GET'>
-                        <input type='hidden' value='%d' name='id_num'>
-                        <input type='submit' value="Downvote Message">
-                        </form>
-                     """ % (m.id))
+            if m.author.username != meeplib.get_current_user():
+                s.append(
+                         """
+                            <form action='increase_msg_rank' method='GET'>
+                            <input type='hidden' value='%d' name='id_num'>
+                            <input type='submit' value="Upvote Message">
+                            </form>
+                         """ % (m.id))
+                s.append(
+                         """
+                            <form action='decrease_msg_rank' method='GET'>
+                            <input type='hidden' value='%d' name='id_num'>
+                            <input type='submit' value="Downvote Message">
+                            </form>
+                         """ % (m.id))
             s.append(
                      """                    
                         <form action='delete_message_action' method='GET'>
@@ -210,20 +211,21 @@ class MeepExampleApp(object):
                     s.append('reply: %s<p>' % (r.reply))
                     s.append('author: %s<p>' % (r.author.username))
                     s.append('RANK: %d<p>' % (r.rank))
-                    s.append(
-                     """
-                        <form action='increase_reply_rank' method='GET'>
-                        <input type='hidden' value='%d' name='id_num'>
-                        <input type='submit' value="Upvote Reply">
-                        </form>
-                     """ % (r.id))
-                    s.append(
-                     """
-                        <form action='decrease_reply_rank' method='GET'>
-                        <input type='hidden' value='%d' name='id_num'>
-                        <input type='submit' value="Downvote Reply">
-                        </form>
-                     """ % (r.id))
+                    if r.author.username != meeplib.get_current_user():
+                        s.append(
+                         """
+                            <form action='increase_reply_rank' method='GET'>
+                            <input type='hidden' value='%d' name='id_num'>
+                            <input type='submit' value="Upvote Reply">
+                            </form>
+                         """ % (r.id))
+                        s.append(
+                         """
+                            <form action='decrease_reply_rank' method='GET'>
+                            <input type='hidden' value='%d' name='id_num'>
+                            <input type='submit' value="Downvote Reply">
+                            </form>
+                         """ % (r.id))
                     s.append(
                      """<form action='delete_reply_action' method='GET'>
                         <input type='hidden' value='%d' name='id_num'>
