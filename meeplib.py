@@ -1,3 +1,5 @@
+import pickle
+
 """
 meeplib - A simple message board back-end implementation.
 
@@ -57,7 +59,6 @@ _users = {}
 #a string that holds the username of the current logged in user
 _current_user = ''
 
-
 def _get_next_user_id():
     if _users:
         #print _users.keys()
@@ -95,12 +96,14 @@ class Message(object):
         self.author = author
 
         self._save_message()
+        _saveMeep()
 
     def _save_message(self):
         self.id = _get_next_message_id()
         
         # register this new message with the messages list:
         _messages[self.id] = self
+        _saveMeep()
 
 def get_all_messages(sort_by='id'):
     return _messages.values()
@@ -110,13 +113,16 @@ def get_message(id):
 
 def inc_msg_rank(msg):
     _messages[msg.id].rank += 1
+    _saveMeep()
 
 def dec_msg_rank(msg):
     _messages[msg.id].rank -= 1
+    _saveMeep()
 
 def delete_message(msg):
     assert isinstance(msg, Message)
     del _messages[msg.id]
+    _saveMeep()
 
 class Reply(object):
     """
@@ -134,6 +140,7 @@ class Reply(object):
         self.author = author
 
         self._save_reply()
+        _saveMeep()
 
     def _save_reply(self):
         self.id = _get_next_reply_id()
@@ -141,6 +148,7 @@ class Reply(object):
         
         # register this new message with the messages list:
         _replies[self.id] = self
+        _saveMeep()
 
 def get_all_replies(sort_by='id'):
     return _replies.values()
@@ -150,13 +158,16 @@ def get_reply(id):
 
 def inc_reply_rank(reply):
     _replies[reply.id].rank += 1
+    _saveMeep()
 
 def dec_reply_rank(reply):
     _replies[reply.id].rank -= 1
+    _saveMeep()
 
 def delete_reply(reply):
     assert isinstance(reply, Reply)
     del _replies[reply.id]
+    _saveMeep()
 
 ###
 
@@ -166,6 +177,7 @@ class User(object):
         self.password = password
         print "user test 1"
         self._save_user()
+        _saveMeep()
 
     def _save_user(self):
         print "save user test2"
@@ -175,6 +187,7 @@ class User(object):
         # register new user ID with the users list:
         _user_ids[self.id] = self
         _users[self.username] = self
+        _saveMeep()
 
 def set_current_user(username):
     print "----"
@@ -183,12 +196,14 @@ def set_current_user(username):
     _current_user = username
     print _current_user
     print "-----"
+    _saveMeep()
 
 def get_current_user():
     print "xxxx"
     print _current_user
     print "xxxx"
     return _current_user
+    _saveMeep()
 
 def get_user(username):
     return _users.get(username)         # return None if no such user
@@ -199,6 +214,7 @@ def get_all_users():
 def delete_user(user):
     del _users[user.username]
     del _user_ids[user.id]
+    _saveMeep()
 
 def is_user(username, password):
     try:
@@ -218,5 +234,19 @@ def is_user(username, password):
     else:
         #print "false2"
         return False
+    _saveMeep()
 
-    #updated 1/25/2012
+def _saveMeep():
+    obj = (_messages, _replies, _users, _user_ids, _current_user)
+    filename = "meep.pickle"
+    fp = open(filename, "w")
+    pickle.dump(obj, fp)
+    fp.close()
+
+def _openMeep():
+    global _messages, _replies, _users, _user_ids, _current_user
+    fp = open("meep.pickle", "r")
+    obj = pickle.load(fp)
+    (_messages, _replies, _users, user_ids, _current_user) = obj
+    fp.close()
+    #updated 2/7/2012

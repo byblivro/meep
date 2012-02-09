@@ -1,6 +1,7 @@
 import meeplib
 import traceback
 import cgi
+import pickle
 
 ########Login Functionality########
 #No create user functionality.  Users hardcoded in.
@@ -13,18 +14,21 @@ import cgi
 #Updated for HW2  12:17 Jan24
 #username = 'test'
 def initialize():
-    # create a default user
-    u = meeplib.User('test', 'foo')
-    a = meeplib.User('Anonymous', 'password')
-    x = meeplib.User('studentx', 'passwordx')
-    y = meeplib.User('studenty', 'passwordy')
-    z = meeplib.User('studentz', 'passwordz')
-    meeplib.set_current_user('Anonymous')
-    #e = meeplib.get_user('studenty')
-    #print e
+    try:
+        meeplib._openMeep()
+    except IOError:
+        # create a default user
+        u = meeplib.User('test', 'foo')
+        a = meeplib.User('Anonymous', 'password')
+        x = meeplib.User('studentx', 'passwordx')
+        y = meeplib.User('studenty', 'passwordy')
+        z = meeplib.User('studentz', 'passwordz')
+        meeplib.set_current_user('Anonymous')
+        #e = meeplib.get_user('studenty')
+        #print e
     
-    # create a single message
-    meeplib.Message('my title', 'This is my message!', 0, u)
+        # create a single message
+        meeplib.Message('my title', 'This is my message!', 0, u)
 
     #loggedIn = False
     
@@ -432,4 +436,4 @@ class MeepExampleApp(object):
             start_response(status, [('Content-type', 'text/html')])
             return [x]
 
-#updated 1/25/2012
+#updated 2/7/2012
