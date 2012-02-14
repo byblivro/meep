@@ -1,0 +1,14 @@
+go http://localhost:8000/
+
+follow "Show messages"
+
+fv 1 None 'Reply to Message'
+submit
+
+fv 1 reply 'Twill test reply message'
+submit
+
+go http://localhost:8000/m/list
+find 'Twill test reply message'
+
+

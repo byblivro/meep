@@ -1,0 +1,16 @@
+go http://localhost:8000/
+
+follow 'Create a New User'
+
+fv 1 username 'TwillTest'
+fv 1 password 'twilltest'
+submit
+
+go http://localhost:8000/login
+
+fv 1 username 'TwillTest'
+fv 1 password 'twilltest'
+submit
+
+go http://localhost:8000/
+find 'TwillTest'
