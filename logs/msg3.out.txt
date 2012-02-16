@@ -1,0 +1,11 @@
+HTTP/1.0 200 OK
+Date: Thu, 16 Feb 2012 18:30:57 GMT
+Server: WSGIServer/0.1 Python/2.7.2
+Content-type: text/html
+
+<form action='add_message_action' method='POST'>
+                  Title: <input type='text' name='title'><br>
+                  Message: <input type='text' name='message'>
+                  <input type='hidden' value='0' name='rank'>
+                  <br><input type='submit'></form>
+               

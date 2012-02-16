@@ -1,0 +1,68 @@
+HTTP/1.0 200 OK
+Date: Thu, 16 Feb 2012 18:31:04 GMT
+Server: WSGIServer/0.1 Python/2.7.2
+Content-type: text/html
+Content-Length: 3888
+
+id: 1<p>title: twill Test<p>message: twill test message<p>author: Anonymous<p>RANK: 0<p><form action='add_reply' method='GET'>
+                        <input type='hidden' value='1' name='id_num'>
+                        <input type='submit' value="Reply to Message">
+                        </form>
+                     
+                            <form action='increase_msg_rank' method='GET'>
+                            <input type='hidden' value='1' name='id_num'>
+                            <input type='submit' value="Upvote Message">
+                            </form>
+                         
+                            <form action='decrease_msg_rank' method='GET'>
+                            <input type='hidden' value='1' name='id_num'>
+                            <input type='submit' value="Downvote Message">
+                            </form>
+                                             
+                        <form action='delete_message_action' method='GET'>
+                        <input type='hidden' value='1' name='id_num'>
+                        <input type='submit' value="Delete Message">
+                        </form>
+                     title: RE:twill Test<p>reply: Twill test reply message<p>author: test<p>RANK: 0<p>
+                            <form action='increase_reply_rank' method='GET'>
+                            <input type='hidden' value='0' name='id_num'>
+                            <input type='submit' value="Upvote Reply">
+                            </form>
+                         
+                            <form action='decrease_reply_rank' method='GET'>
+                            <input type='hidden' value='0' name='id_num'>
+                            <input type='submit' value="Downvote Reply">
+                            </form>
+                         <form action='delete_reply_action' method='GET'>
+                        <input type='hidden' value='0' name='id_num'>
+                        <input type='submit' value="Delete Reply">
+                        </form>
+                     <hr>id: 2<p>title: Twill Test<p>message: Twill test message<p>author: Anonymous<p>RANK: 0<p><form action='add_reply' method='GET'>
+                        <input type='hidden' value='2' name='id_num'>
+                        <input type='submit' value="Reply to Message">
+                        </form>
+                     
+                            <form action='increase_msg_rank' method='GET'>
+                            <input type='hidden' value='2' name='id_num'>
+                            <input type='submit' value="Upvote Message">
+                            </form>
+                         
+                            <form action='decrease_msg_rank' method='GET'>
+                            <input type='hidden' value='2' name='id_num'>
+                            <input type='submit' value="Downvote Message">
+                            </form>
+                                             
+                        <form action='delete_message_action' method='GET'>
+                        <input type='hidden' value='2' name='id_num'>
+                        <input type='submit' value="Delete Message">
+                        </form>
+                     id: 3<p>title: This is a test<p>message: This is a test<p>author: TwillTest<p>RANK: 0<p><form action='add_reply' method='GET'>
+                        <input type='hidden' value='3' name='id_num'>
+                        <input type='submit' value="Reply to Message">
+                        </form>
+                                         
+                        <form action='delete_message_action' method='GET'>
+                        <input type='hidden' value='3' name='id_num'>
+                        <input type='submit' value="Delete Message">
+                        </form>
+                     <a href='../../'>index</a>

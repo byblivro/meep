@@ -1,0 +1,11 @@
+HTTP/1.0 200 OK
+Date: Thu, 16 Feb 2012 18:31:07 GMT
+Server: WSGIServer/0.1 Python/2.7.2
+Content-type: text/html
+
+<form action='add_reply_action' method='POST'>
+                  Reply: <input type='text' name='reply'>
+                  <input type='hidden' value='1' name='id_num'>
+                  <input type='hidden' value='0' name='rank'>
+                  <br><input type='submit'></form>
+               

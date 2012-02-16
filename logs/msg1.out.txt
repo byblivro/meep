@@ -1,0 +1,7 @@
+HTTP/1.0 200 OK
+Date: Thu, 16 Feb 2012 18:30:54 GMT
+Server: WSGIServer/0.1 Python/2.7.2
+Content-type: text/html
+Content-Length: 220
+
+you are logged in as user: TwillTest<p><a href='/m/add'>Add a message</a><p><a href='/create_user'>Create a New User</a><p><a href='/login'>Log in</a><p><a href='/logout'>Log out</a><p><a href='/m/list'>Show messages</a>
