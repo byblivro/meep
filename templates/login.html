@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}meep: Login!{% endblock title %}
+
+{% block body %}
+
+<form action='login_action' method='POST'>
+Username: <input type='text' name='username'><br>
+Password:<input type='text' name='password'><br>
+<input type='submit'></form>
+
+{% endblock body %}
