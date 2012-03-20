@@ -1,11 +1,40 @@
+<!DOCTYPE HTML>
+
 <html>
 <head>
+<meta charset="utf-8">
+    <link href="/stylesheet" rel="stylesheet" type="text/css">
+
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
 {% block head %}
 <title>{% block title %}meeeeeeep!{% endblock title %}</title>
 {% endblock %}
 </head>
-<body>
+
+<div class="container">
+  <header>
+    <a href="#"><img src="/header.jpg" alt="Home" width="960" height="275" id="Home"/></a>
+  </header>
+  <div class="navigation">
+    <nav>
+      <ul>
+        <li><a href='/m/add'>Add a message</a></li>
+        <li><a href='/login'>Log in</a></li>
+        <li><a href='/logout'>Log out</a></li>
+        <li><a href='/m/list'>Show messages</a></li>
+      </ul>
+    </nav>
+  <aside>
 {% block body %}
 {% endblock %}
+  </aside>
+  <footer>
+    <p>© All Rights Reserved - 2012 - Roman Bybliv</p>
+</footer>
+</div>
+
 </body>
 </html>

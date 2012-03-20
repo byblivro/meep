@@ -19,37 +19,6 @@ class TestApp(unittest.TestCase):
         assert 'Add a message' in data[0]
         assert 'Show messages' in data[0]
 
-    def test_add_message(self):
-        environ = {}                    # make a fake dict
-        environ['PATH_INFO'] = '/m/add'
-
-        def fake_start_response(status, headers):
-            assert status == '200 OK'
-            assert ('Content-type', 'text/html') in headers
-                
-        data = self.app(environ, fake_start_response)
-
-    def test_list_messages(self):
-        environ = {}                    # make a fake dict
-        environ['PATH_INFO'] = '/m/list'
-
-        def fake_start_response(status, headers):
-            assert status == '200 OK'
-            assert ('Content-type', 'text/html') in headers
-                
-        data = self.app(environ, fake_start_response)
-    
-    def test_login(self):
-        environ = {}                    # make a fake dict
-        environ['PATH_INFO'] = '/login'
-
-        def fake_start_response(status, headers):
-            assert status == '200 OK'
-            assert ('Content-type', 'text/html') in headers
-                
-        data = self.app(environ, fake_start_response)
-
-
     def tearDown(self):
         pass
 
