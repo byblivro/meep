@@ -4,14 +4,32 @@
 
 {% block aside %}
 
- {% for item in messages %}
+ {% for m in messages %}
 
-  id: {{ item.id }}<p>
-  title: {{ item.title }}<p>
-  message: {{ item.post }}<p>
-  author: {{ item.author.username }}<p>
-  <hr>
+  <p>id: {{ m.id }}</p>
+  <p>title: {{ m.title }}</p>
+  <p>message: {{ m.post }}</p>
+  <p>author: {{ m.author.username }}</p>
+  <message>
+    <ul>
+    <li><form action='add_reply' method='GET'><input type='hidden' value='{{ m.id }}' name='id_num'><input type='submit' value="Reply to Message"></form></li>
+    <li><form action='delete_message_action' method='GET'><input type='hidden' value='{{ m.id }}' name='id_num'><input type='submit' value="Delete Message"></form></li>
+    </ul>
+  </message>
 
+    {% for r in replies %}
+        {% if r.id_num == m.id %}
+            <p>title: Re: {{ m.title }} </p>
+            <p>reply: {{ r.reply }} </p>
+            <p>author: {{ r.author.username }} </p>
+            <message>
+                <ul>
+                    <li><form action='delete_reply_action' method='GET'><input type='hidden' value='{{ r.id }}' name='id_num'><input type='submit' value="Delete Reply"></form></li>
+                </ul>
+            </message>
+        {% endif %}
+    {% endfor %}
+        
  {% endfor %}
 
 <a href='../../'>index</a>

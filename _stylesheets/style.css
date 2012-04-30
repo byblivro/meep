@@ -10,16 +10,66 @@ header, section, footer, aside, nav, article, figure {
 body {
 	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
 	background: #000000;
-	background-image: url([/background.jpg]);
+	background-image: url(../_images/background.jpg);
 	background-repeat:no-repeat;
 	margin: 0;
 	padding: 0;
 }
 
 header {
-	padding-top:5px;
+	position: relative;
+	height: 40px;
+	width: 956px;
+	border: solid #fff 2px;
+	background-color: #000;
+	padding-top:10px;
 	padding-bottom:10px;
-	color:inherit;
+	margin-top: 10px;
+	font-family:Verdana, Geneva, sans-serif;
+	font color: #fff;
+	font-size:18px;
+	font-weight:200;	
+}
+
+messsage ul {
+    margin: 1px;
+    padding: 1px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    color: #fff;
+    line-height: 37px;
+    white-space: nowrap;
+
+}
+
+message li {
+    list-style-type: none;
+    display: inline;
+	text-align: center;
+}
+
+message li a {
+    text-decoration: none;
+    padding: 6px 4px;
+    color: #FFF;
+	text-align: center;
+}
+
+message li a:link {
+    color: #FFF;
+	text-align: center;
+}
+
+message li a:visited {
+    color: #FFF;
+	text-align: center;
+}
+
+message li a:hover {
+    font-weight: bold;
+    color: #FFF;
+    background-color: #333;
+	text-align: center;
 }
 
 nav {
@@ -76,7 +126,9 @@ ul, ol, dl {
 	padding-left:30px;
 	margin: 0;
 }
-h1, h2, h3, h4, h5, h6, p {
+h1, h2, h3, h4, h5, h6, p 
+{
+    color: #FFF;
 	margin-top: 0;
 	padding-right: 5px;
 	padding-left: 5px;

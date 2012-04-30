@@ -9,7 +9,6 @@ import meeplib
 
 class TestMeepLib(unittest.TestCase):
     def setUp(self):
-        meeplib._reset()
         u = meeplib.User('foo', 'bar')
         m = meeplib.Message('the title', 'the content', u)
 
@@ -25,10 +24,14 @@ class TestMeepLib(unittest.TestCase):
         u = x[0]
 
         x = meeplib.get_all_messages()
-        assert len(x) == 1, x
+        assert len(x) == 1
         m = x[0]
 
         assert m.author == u
+
+    def test_get_next_user(self):
+        x = meeplib._get_next_user_id()
+        assert x == 1 
 
     def tearDown(self):
         m = meeplib.get_all_messages()[0]
